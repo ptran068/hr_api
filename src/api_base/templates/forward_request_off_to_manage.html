@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+        table {
+            border: 0;
+            padding: 0;
+            width: 100%;
+            border-spacing: 0;
+        }
+
+        body {
+            background-color: #f3f5f7;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        td {
+            background-color: #25c9d0;
+            text-align: -webkit-center;
+        }
+
+        .td-child {
+            padding: 30px 10px;
+            text-align: -webkit-center;
+            vertical-align: top;
+        }
+
+        .td2 {
+            padding: 0 10px;
+            background-color: #25c9d0;
+            text-align: -webkit-center;
+        }
+
+        .table-child {
+            max-width: 600px;
+            border: 0;
+            padding: 0;
+            width: 100%;
+            border-spacing: 0;
+        }
+
+        .td-header {
+            background-color: white;
+            text-align: -webkit-center;
+            vertical-align: top;
+            padding: 40px 20px 20px;
+            border-radius: 4px 4px 0 0;
+            color: rgb(17, 17, 17);
+            font-family: Avenir Black, sans-serif;
+            font-size: 48px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            line-height: 48px;
+        }
+
+        .td-body {
+            background-color: #f4f4f4;
+            text-align: -webkit-center;
+            padding: 0 10px;
+        }
+
+        .td-footer {
+            padding: 30px 10px 0;
+            background-color: #f4f4f4;
+            text-align: -webkit-center;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .td-body-child {
+            background-color: white;
+            text-align: -webkit-left;
+            padding: 20px 30px 40px;
+            color: rgb(102, 102, 102);
+            font-family: Avenir, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 25px;
+        }
+        .table-date-off {
+            border: 1px solid black;
+            border-collapse: collapse;
+
+        }
+        img {
+            display: block;
+            width: 113px;
+            border: 0;
+        }
+
+        .m-0 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body >
+​
+<table>
+    <!-- LOGO -->
+    <tbody>
+    <tr>
+        <td>
+            <table>
+                <tbody>
+                <tr>
+                    <td class="td-child">
+                        <a target="_blank">
+                            <img src="{{logo}}" alt=""
+                            >
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <!-- HERO -->
+    <tr>
+        <td class="td2">
+            <table class="table-child">
+                <tbody>
+                <tr>
+                    <td class="td-header">
+                        <h1>Notice</h1>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <!-- COPY BLOCK -->
+    <tr>
+        <td class="td-body">
+            <table class="table-child">
+                <!-- COPY -->
+                <tbody>
+                <tr>
+                    <td class="td-body-child">
+                        <p class="m-0">Greeting {{ name_admin_manage }},
+                        </p>
+                        <p>{{name_user}}</strong> has <strong>{{name_admin}}</strong> approved and is waiting for your consent.
+                            Visit {{link}} to approve this request</p>
+                        <p>
+                            Time
+                            <table class="table-date-off" align="center">
+                                <tr>
+                                    <th class="table-date-off" >Day</th>
+                                    <th class="table-date-off" >Type</th>
+                                </tr>
+                                {% for item in date_off %}
+                                <tr align="center">
+                                    <td class="table-date-off td-body">{{ item.date }}</td>
+                                    <td  class="table-date-off td-body">{{ item.type }}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-body-child">
+                       --- <p class="m-0">Regards,<br>Automatic Responder</p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <!-- SUPPORT CALLOUT -->
+    <tr>
+        <td class="td-footer">
+            <!-- FOOTER -->
+    <tr>
+        <td class="td-body">
+            <table class="table-child">
+                <!-- NAVIGATION -->
+                <tbody>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
