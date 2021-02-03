@@ -15,4 +15,4 @@ jobs:
         run: |
           echo "continue"
           cd src
-          python3 manager.py test
+          python3 manage.py test
