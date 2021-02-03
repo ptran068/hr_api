@@ -22,8 +22,8 @@ jobs:
 #          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Test ${{ matrix.container }}
-#        with:
-#          service: ${{matrix.container}}
+        with:
+          service: ${{matrix.container}}
         run: |
           cd src/
           python3 manage.py test
