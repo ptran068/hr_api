@@ -21,8 +21,6 @@ jobs:
 #          pip install flake8 pytest
 #          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Test ${{ matrix.container }}
-        with:
-          docker-version: ${{matrix.container}}
         run: |
           cd src/
           python3 manage.py test
