@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Statistic annual lunch</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Provider</th>
+        <th>Address</th>
+        <th>Total Budget</th>
+        <th>Total lunches</th>
+        <th>Total user lunches</th>
+        <th>Total normal lunch</th>
+        <th>Total Veggie Lunch</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for item in list_data %}
+      <tr>
+        <td>{{item.provider.name}}</td>
+        <td>{{item.provider.address}}</td>
+        <td>{{item.total_budgets}}</td>
+        <td>{{item.total_lunches}}</td>
+        <td>{{item.total_user_lunches}}</td>
+        <td>{{item.total_normal_lunch}}</td>
+        <td>{{item.total_veggie_lunch}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
