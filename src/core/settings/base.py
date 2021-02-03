@@ -89,7 +89,7 @@ REST_FRAMEWORK = {
 }
 
 # Testing
-# Use nose to run all tests
+# # Use nose to run all tests
 # TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 #
 # # Tell nose to measure coverage on the 'foo' and 'bar' apps
@@ -97,6 +97,14 @@ REST_FRAMEWORK = {
 #     '--with-coverage',
 #     '--cover-package=api_user_lunch,api_lunch, api_workday, api_user',
 # ]
+# Use nose to run all tests
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+# Tell nose to measure coverage on the 'foo' and 'bar' apps
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=api_user_lunch,api_lunch, api_workday, api_user',
+]
 
 ROOT_URLCONF = 'core.urls'
 
