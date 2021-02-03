@@ -21,6 +21,7 @@ jobs:
 #          pip install flake8 pytest
 #          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Test ${{ matrix.ubuntu }}
+        uses: actions/ubuntu-version@v1
         with:
           ubuntu-version: ${{matrix.ubuntu}}
         run: |
