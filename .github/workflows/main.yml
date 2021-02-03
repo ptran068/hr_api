@@ -1,5 +1,5 @@
 name: Matrixsc
-#2
+#2s
 on: push
 jobs:
   build:
