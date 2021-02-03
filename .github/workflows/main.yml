@@ -6,7 +6,7 @@ jobs:
     runs-on: self-hosted
     strategy:
       matrix:
-        container: [ "ubuntu:18.04", "fedora:31", "opensuse/leap:42.3"]
+        ubuntu: [ "ubuntu:18.04", "ubuntu:16.04", "ubuntu:20.04"]
     container:
       image: ${{ matrix.container }}
     steps:
@@ -20,7 +20,9 @@ jobs:
 #          python -m pip install --upgrade pip
 #          pip install flake8 pytest
 #          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Test ${{ matrix.container }}
+      - name: Test ${{ matrix.ubuntu }}
+        with:
+          ubuntu-version: ${{matrix.ubuntu}}
         run: |
           cd src/
           python3 manage.py test
