@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         run: ['run1', 'run2', 'run3']
-      max-parallel: 2
+      max-parallel: 3
     steps:
       - run: echo Run ${{ matrix.run }}
       - run: date
