@@ -6,11 +6,19 @@ import sys
 
 def main():
     if "tests" in sys.argv:
+<<<<<<< HEAD
         os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings.development")
     elif "development" in sys.argv:
         os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings.development")
     else:
         os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings.development")
+=======
+        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings.test")
+    elif "development" in sys.argv:
+        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings.development")
+    else:
+        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings.production")
+>>>>>>> 9f46d291ffae186729005f49d074dd9d03ca1728
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
