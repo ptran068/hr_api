@@ -10,9 +10,9 @@ jobs:
         run: ['run1', 'run2', 'run3']
       max-parallel: 3
     steps:
-      - run: echo Run ${{ matrix.run }}
-      - run: date
-      - name: Exit early if matrix run is run1
-        run: echo "continue"'
-#      - run: sleep 5 # Sleep to make sure all process that don't match above check don't finish before the one that will exit
-      - run: date
+      - uses: actions/checkout@v2
+      - name: Run test with ${{matrix.run}}
+        run: |
+          echo "continue"
+          cd src
+          python3 manager.py test
