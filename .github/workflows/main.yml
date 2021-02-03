@@ -8,6 +8,7 @@ jobs:
     strategy:
       matrix:
         run: ['run1', 'run2', 'run3']
+      fail-fast: false
       max-parallel: 3
     steps:
       - uses: actions/checkout@v2
