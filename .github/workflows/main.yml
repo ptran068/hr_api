@@ -9,14 +9,15 @@ jobs:
         os: [job-one, job-two]
     steps:
       - uses: actions/checkout@v2
-      - name: Test ${{matrix.os}}
-        run: 'if [ "${{ matrix.os }}" = "job-one" ]; then
-                  echo "This is job one" \
-                  echo " continue " \
-              else \
-                echo "this is job two" \
-                echo "continue" \
-              fi'
+      - name: Run test with ${{matrix.os}}
+        run: |
+          echo "hello"
+          if ["${{ matrix.os}}" = "job-one"]; then
+              echo "This is job one"
+          else
+              echo "this is job two"
+          fi
+        shell: bash
 
   check-build:
     if: ${{ always() }}
