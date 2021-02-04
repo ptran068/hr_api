@@ -25,14 +25,13 @@ jobs:
           elif [ "${{ matrix.os}}" == "job-two" ]; then
               echo ::set-output name=hihi::failure
               echo "This is job two"
-              echo ::set-output name=hihi::true
           else
               echo "he"
           fi
       - name: Check build matrix status
         run: |
-          echo ${{ steps.run_unittest.outputs.status }}
-          echo ${{ steps.run_unittest.outputs.hihi }}
+          echo steps.run_unittest.outputs.status
+          echo steps.run_unittest.outputs.hihi
 
   check-build:
     if: ${{ always() }}
