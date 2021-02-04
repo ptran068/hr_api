@@ -17,11 +17,14 @@ jobs:
         run: |
           echo "hello"
           if [ "${{ matrix.os}}" == "job-one" ]; then
+              echo "action_state=yellow" >> $GITHUB_ENV
               echo "This is job one"
-              echo "LOCAL_AUTOMATION_STATUS=true" >> $GITHUB_ENV
+              echo "action_state=red" >> $GITHUB_ENV
+
           elif [ "${{ matrix.os}}" == "job-two" ]; then
+              echo "action_statee=black" >> $GITHUB_ENV
               echo "this is job two"
-              echo "LOCAL_LIBRARY_STATUS=true" >> $GITHUB_ENV
+             echo "action_statee=blue" >> $GITHUB_ENV
           else
               echo "he"
           fi
@@ -35,6 +38,6 @@ jobs:
       - name: Check build matrix status
         if: ${{ needs.build.result == 'success' }}
         run: |
-          echo "WF_ENV: ${{env.LOCAL_LIBRARY_STATUS}}"
-          echo "JOB_ENV: ${{env.LOCAL_AUTOMATION_STATUS}}"
+          echo "${{ env.action_state }}"
+          echo "${{ env.action_statee }}"
 
