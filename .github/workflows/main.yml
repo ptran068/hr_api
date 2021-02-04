@@ -25,8 +25,6 @@ jobs:
           elif [ "${{ matrix.os}}" == "job-two" ]; then
               echo ::set-output name=hihi::failure
               echo "This is job two"
-          else
-              echo "he"
           fi
       - name: Check build matrix statuss
         if: steps.run_unittest.outputs.status == 'true'
