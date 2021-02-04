@@ -19,13 +19,12 @@ jobs:
           fi
       - name: Test ${{matrix.os}}
         run: ' if [ "${{ matrix.os }}" = "job-one" ]; then
-                  echo "This is job one"
-                  echo " continue "
+                  echo "This is job one" \
+                  echo "continue"
                else
-                  echo "this is job two"
-                  echo " continue "
-               fi
-              '
+                  echo "this is job two" \
+                  echo "continue"
+               fi'
 
   check-build:
     if: ${{ always() }}
