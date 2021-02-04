@@ -8,9 +8,10 @@ jobs:
     strategy:
       matrix:
         os: [job-one, job-two]
+      fail-fast: false
     steps:
       - uses: actions/checkout@v2
-      - name: Run test with ${{github.self_hosted_labels}}
+      - name: Run test with ${{matrix.os}}
         run: |
           echo "continue"
           cd src
