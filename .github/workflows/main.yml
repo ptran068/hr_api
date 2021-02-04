@@ -30,8 +30,8 @@ jobs:
           fi
       - name: Check build matrix status
         run: |
-          echo steps.run_unittest.outputs.status
-          echo steps.run_unittest.outputs.hihi
+          echo ${{ steps.run_unittest.outputs.status }}
+          echo ${{ steps.run_unittest.outputs.hihi }}
 
   check-build:
     if: ${{ always() }}
