@@ -35,6 +35,6 @@ jobs:
       - name: Check build matrix status
         if: ${{ needs.build.result == 'success' }}
         run: |
-          echo "WF_ENV: ${LOCAL_LIBRARY_STATUS}"
-          echo "JOB_ENV: ${LOCAL_AUTOMATION_STATUS}"
+          echo "WF_ENV: ${{env.LOCAL_LIBRARY_STATUS}}"
+          echo "JOB_ENV: ${{env.LOCAL_AUTOMATION_STATUS}}"
 
