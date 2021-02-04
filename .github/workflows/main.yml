@@ -1,6 +1,5 @@
 
-
-name: Sample Should Fail All Runs
+name: Test Matrix
 on: push
 jobs:
   build:
@@ -11,9 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run test with ${{matrix.os}}
-        run: |
-          echo "continue"
-          echo "continue"
+        run: '[ "${{ matrix.os }}" = "job-one" ] && echo "This is job one" || echo "this is job two"'
   check-build:
     if: ${{ always() }}
     runs-on: ubuntu-latest
