@@ -29,9 +29,9 @@ jobs:
               echo "he"
           fi
       - name: Check build matrix status
+        if: steps.run_unittest.outputs.status == true
         run: |
-          echo ${{ steps.run_unittest.outputs.status }}
-          echo ${{ steps.run_unittest.outputs.hihi }}
+          echo "hehe"
 
   check-build:
     if: ${{ always() }}
