@@ -11,8 +11,12 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run test with ${{matrix.os}}
         run: |
-          echo "hello" \
-          '[ "${{ matrix.os }}" == "job-one" ] && echo "job 1" || echo "continue"'
+          echo "hello"
+          if [["${{ matrix.os }}" = "job-one"]]; then
+              echo "This is job one"
+          else
+              echo "this is job two"
+          fi
 
   check-build:
     if: ${{ always() }}
