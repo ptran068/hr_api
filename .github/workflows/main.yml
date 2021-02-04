@@ -15,7 +15,7 @@ jobs:
           if "${{ matrix.os }}" = "job-one"; then
               echo "This is job one"
           else
-              echo "this is job two"'
+              echo "this is job two"
           fi
 
   check-build:
