@@ -9,13 +9,13 @@ jobs:
         os: [job-one, job-two]
     steps:
       - uses: actions/checkout@v2
-      - name: Run test with ${{matrix.os}}
-        if: ${{matrix.os}} == job-one
+      - if: ${{matrix.os}} == job-one
+        name: Run test with ${{matrix.os}}
         run: |
           echo "this is one"
           echo "continue"
-      - name: Run test with ${{matrix.os}}
-        if: ${{matrix.os}} == job-two
+      - if: ${{matrix.os}} == job-two
+        name: Run test with ${{matrix.os}}
         run: |
           echo "this is two"
           echo "continue"
