@@ -7,6 +7,10 @@ jobs:
     strategy:
       matrix:
         os: [job-one, job-two]
+    env:
+      LOCAL_LIBRARY_STATUS: false
+      LOCAL_AUTOMATION_STATUS: false
+      LOCAL_HOCPC_STATUS: false
     steps:
       - uses: actions/checkout@v2
       - name: Run test with ${{matrix.os}}
@@ -14,11 +18,10 @@ jobs:
           echo "hello"
           if [ "${{ matrix.os}}" == "job-one" ]; then
               echo "This is job one"
-              echo "This is job one"
-              echo "This is job one"
-
+              echo "LOCAL_AUTOMATION_STATUS=true" >> $GITHUB_ENV
           elif [ "${{ matrix.os}}" == "job-two" ]; then
               echo "this is job two"
+              echo "LOCAL_LIBRARY_STATUS=true" >> $GITHUB_ENV
           else
               echo "he"
           fi
@@ -30,5 +33,8 @@ jobs:
     needs: build
     steps:
       - name: Check build matrix status
-        if: ${{ needs.build.result != 'success' }}
-        run: build false
+        if: ${{ needs.build.result == 'success' }}
+        run: |
+          echo "WF_ENV: ${LOCAL_LIBRARY_STATUS}"
+          echo "JOB_ENV: ${LOCAL_AUTOMATION_STATUS}"
+
