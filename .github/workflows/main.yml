@@ -10,13 +10,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Test ${{matrix.os}}
-        run: ' if [ "${{ matrix.os }}" = "job-one" ]; then
-                  echo "This is job one"
-                  echo " continue "
-               else
-                  echo "this is job two"
-                  echo "continue"
-               fi'
+        run: 'if [ "${{ matrix.os }}" = "job-one" ]; then
+                  echo "This is job one" \
+                  echo " continue " \
+              else \
+                echo "this is job two" \
+                echo "continue" \
+              fi'
 
   check-build:
     if: ${{ always() }}
