@@ -10,7 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run test with ${{matrix.os}}
-        run: '[ "${{ matrix.os }}" = "job-one" ] && echo "This is job one" || echo "this is job two"'
+        run: |
+          if ["${{ matrix.os }}" = "job-one"]; then
+              echo "This is job one"
+            else
+               echo "this is job two"
   check-build:
     if: ${{ always() }}
     runs-on: ubuntu-latest
