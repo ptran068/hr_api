@@ -7,11 +7,10 @@ jobs:
     runs-on: ${{matrix.os}}
     strategy:
       matrix:
-        os: [self-hosted]
+        os: [self-hosted.lable]
     steps:
       - uses: actions/checkout@v2
       - name: Run test with ${{matrix.os}}
         run: |
-          echo "continue"
           cd src
           python3 manage.py test
