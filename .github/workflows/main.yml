@@ -14,17 +14,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run test with ${{matrix.os}}
+        id: run_unittest
         run: |
           echo "hello"
           if [ "${{ matrix.os}}" == "job-one" ]; then
-              echo "action_state=yellow" >> $GITHUB_ENV
+              echo ::set-output name=status::failure
               echo "This is job one"
-              echo "action_state=red" >> $GITHUB_ENV
+              echo ::set-output name=status::true
 
           elif [ "${{ matrix.os}}" == "job-two" ]; then
-              echo "action_statee=black" >> $GITHUB_ENV
-              echo "this is job two"
-             echo "action_statee=blue" >> $GITHUB_ENV
+              echo ::set-output name=hihi::failure
+              echo "This is job two"
+              echo ::set-output name=hihi::true
           else
               echo "he"
           fi
@@ -38,6 +39,6 @@ jobs:
       - name: Check build matrix status
         if: ${{ needs.build.result == 'success' }}
         run: |
-          echo "${{ env.action_state }}"
-          echo "${{ env.action_statee }}"
+          echo ${{ build.steps.run_unittest.outputs.status }}
+          echo ${{ build.steps.run_unittest.outputs.hihi }}
 
