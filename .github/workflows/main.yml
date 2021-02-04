@@ -12,7 +12,7 @@ jobs:
       - name: Run test with ${{matrix.os}}
         run: |
           echo "hello"
-          if "${{ matrix.os }}" = "job-one"; then
+          if ""${{ matrix.os }}" = "job-one""; then
               echo "This is job one"
           else
               echo "this is job two"
