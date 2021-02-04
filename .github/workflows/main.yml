@@ -15,6 +15,7 @@ jobs:
               echo "This is job one"
             else
                echo "this is job two"
+          fi
   check-build:
     if: ${{ always() }}
     runs-on: ubuntu-latest
