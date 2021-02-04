@@ -4,15 +4,13 @@ name: Sample Should Fail All Runs
 on: push
 jobs:
   job:
-    runs-on: self-hosted
+    runs-on: ${{matrix.os}}
     strategy:
       matrix:
-        run: ['run1', 'run2', 'run3']
-#      fail-fast: true
-      max-parallel: 2
+        os: [self-hosted]
     steps:
       - uses: actions/checkout@v2
-      - name: Run test with ${{matrix.run}}
+      - name: Run test with ${{matrix.os}}
         run: |
           echo "continue"
           cd src
