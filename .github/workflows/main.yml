@@ -17,12 +17,12 @@ jobs:
         id: run_unittest
         run: |
           echo "hello"
-          if [ "${{ matrix.os}}" == "job-one" ]; then
+          if [ "${{ matrix.os}}" -eq "job-one" ]; then
               echo ::set-output name=status::failure
               echo "This is job one"
               echo ::set-output name=status::true
 
-          elif [ "${{ matrix.os}}" == "job-two" ]; then
+          elif [ "${{ matrix.os}}" -eq "job-two" ]; then
               echo ::set-output name=hihi::failure
               echo "This is job two"
           fi
