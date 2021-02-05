@@ -32,7 +32,7 @@ jobs:
 
   check-build:
     if: ${{ always() }}
-    runs-on: ubuntu-latest
+    runs-on: job-one
     name: Build (matrix)
     needs: build
     steps:
